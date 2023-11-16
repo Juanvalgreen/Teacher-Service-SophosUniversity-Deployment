@@ -5,6 +5,7 @@ com/Sophos/SophosUniversity/models/Courses.class
 com/Sophos/SophosUniversity/entities/Teacher.class
 com/Sophos/SophosUniversity/services/ITeacherService.class
 com/Sophos/SophosUniversity/exceptions/TeacherNotFoundException.class
+com/Sophos/SophosUniversity/config/RestConts.class
 com/Sophos/SophosUniversity/controllers/ExceptionController.class
 com/Sophos/SophosUniversity/exceptions/StudentNotFoundException.class
 com/Sophos/SophosUniversity/services/TeacherService.class

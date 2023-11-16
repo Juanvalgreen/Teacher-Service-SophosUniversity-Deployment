@@ -1,5 +1,6 @@
 package com.Sophos.SophosUniversity.services;
 
+import com.Sophos.SophosUniversity.config.RestConts;
 import com.Sophos.SophosUniversity.entities.Teacher;
 import com.Sophos.SophosUniversity.exceptions.InternalServerErrorException;
 import com.Sophos.SophosUniversity.exceptions.TeacherNotFoundException;
@@ -134,7 +135,7 @@ public class TeacherService implements ITeacherService{
         if(repository.existsById(id)){
             try{
 
-                ResponseEntity<Courses[]> responseEntity = restTemplate.getForEntity("http://localhost:9002/api/v1/courses/"+id+"/teachers", Courses[].class);
+                ResponseEntity<Courses[]> responseEntity = restTemplate.getForEntity(RestConts.BASE_URL_COURSES_DEPLOY + "/api/v1/courses/"+id+"/teachers", Courses[].class);
                 List<Courses> courses = Arrays.asList(responseEntity.getBody());
 
                 if(!courses.isEmpty()){
@@ -144,7 +145,7 @@ public class TeacherService implements ITeacherService{
 
 
                         course.setTeacher_id(null);
-                        restTemplate.put("http://localhost:9002/api/v1/courses",course,Courses.class);
+                        restTemplate.put(RestConts.BASE_URL_COURSES_DEPLOY+"/api/v1/courses",course,Courses.class);
 
                     }
                 }
